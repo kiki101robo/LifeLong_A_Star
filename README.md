@@ -1,33 +1,42 @@
-# Lifelong A* Pathfinding Project
-This project implements the Lifelong A* (LPA*) algorithm, an incremental pathfinding method used in dynamic environments where obstacles can appear or disappear, and a path needs to be efficiently recalculated. It includes Python scripts to handle the environment setup, path planning, and visualization.
+# Lifelong A* Algorithm Implementation
 
-File Descriptions
-main.py: Contains the Lifelong_A_Star class that implements the LPA* algorithm. It initializes with start and goal positions, chooses a heuristic (Euclidean or Manhattan), and handles dynamic obstacle updates.
-env.py: Defines the Env class that models the grid environment, including obstacles, grid dimensions, and allowed movements.
-plotting.py: Contains the Plotting class responsible for visualizing the environment, the visited nodes, and the final path using matplotlib.
-Setup and Requirements
-Python Version:
+## Files Overview
 
-Ensure Python 3.6 or higher is installed.
-Dependencies:
+### `Lifelong_A_Star.py`
+- **Purpose**: Implements the Lifelong A* (LPA*) pathfinding algorithm with dynamic obstacle handling in a grid environment.
+- **Key Functions**:
+  - `__init__(self, s_start, s_goal, heuristic_type)`: Initialize the algorithm with start and goal points, heuristic type, and environment settings.
+  - `run()`: Manages the visualization and user interaction loop.
+  - `on_press(event)`: Handles mouse click events to modify obstacles and re-compute paths.
+  - `ComputeShortestPath()`: Executes the core LPA* algorithm logic to determine the shortest path.
+  - `UpdateVertex(s)`: Updates the priority queue based on heuristic and path cost changes.
+  - `plot_path(path)`: Displays the path from start to goal on the grid.
+  - `plot_visited(visited)`: Shows all nodes visited during the path computation.
 
-Requires matplotlib for plotting. Install using pip:
-bash
-Copy
-pip install matplotlib
-Usage
-Running the Lifelong A Algorithm*:
+### `env.py`
+- **Purpose**: Defines the grid environment for the pathfinding algorithm including obstacles, boundaries, and motion possibilities.
+- **Data Structures**:
+  - `obs`: A set containing tuples of obstacle coordinates.
+  - `motion`: A list defining possible movements from each cell.
 
-Set the start and goal positions directly in the main.py.
-Specify the heuristic type (Euclidean or Manhattan) in the Lifelong_A_Star class instantiation.
-Run the script to see the algorithm in action, with interactive obstacle addition and removal:
-bash
-Copy
-python main.py
-Dynamic Obstacle Update:
+### `plotting.py`
+- **Purpose**: Handles graphical representation of the pathfinding process on a grid layout.
+- **Functions**:
+  - `plot_grid(name)`: Draws the grid and labels it.
+  - `plot_path(path)`: Visualizes the computed path on the grid.
+  - `update_obs(obs)`: Refreshes the grid with new or removed obstacles.
 
-Click on the plot area to add or remove obstacles during the algorithm's execution.
-The path and visualization will update in real time based on the new environment configuration.
-Visualization Adjustments:
+## Setup and Execution
+- **Requirements**: Python 3.x, `matplotlib`, `numpy`
+- **Run Command**:
 
-Modify the visualization settings in plotting.py, such as colors, pause durations, and other matplotlib settings, to customize the display.
+Lifelong_A_Star.py
+Launch the script to view the grid environment. Click on the grid to add or remove obstacles and observe real-time path re-computation.
+
+## Features
+- **Interactive Pathfinding**: Adjust the grid dynamically by adding or removing obstacles and watch the algorithm respond in real time.
+- **Visualization**: Provides clear visualization of the pathfinding process, including start and goal points, obstacles, and the computed path.
+
+## Additional Notes
+- This implementation is tailored for educational and demonstration purposes, illustrating dynamic pathfinding in a controlled setting.
+- System performance may vary based on grid complexity and the placement and number of obstacles.
