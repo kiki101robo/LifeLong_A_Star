@@ -28,9 +28,9 @@
 
 ## Setup and Execution
 - **Requirements**: Python 3.x, `matplotlib`, `numpy`
-- **Run Command**:
+- **Run Command**: Lifelong_A_Star.py
 
-Lifelong_A_Star.py
+
 Launch the script to view the grid environment. Click on the grid to add or remove obstacles and observe real-time path re-computation.
 
 ## Features
